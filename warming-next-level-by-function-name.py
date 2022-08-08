@@ -24,6 +24,5 @@ def getWarmingFunctions(statesFullObj, requestingFunctionName):
             branchFunctions = [getWarmingFunctions(branch, requestingFunctionName) for branch in branches]
             if '%=END=%' in branchFunctions and 'Next' in parallelType:
                 branchFunctions.append(parallelType['Next'])
-            # branchFunctions = [branchFunction for branchFunction in branchFunctions if branchFunction != None if len(branchFunction)>0]
             [warmingFunctions.append(bf) for bf in branchFunctions if bf != None and  len(bf) > 0]
         return warmingFunctions
