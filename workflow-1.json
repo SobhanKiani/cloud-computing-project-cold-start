@@ -1,0 +1,58 @@
+{
+    "Comment": "A simple ETL workflow for loading dimension and fact tables",
+    "StartAt": "A",
+    "States": {
+        "A": {
+            "Type": "Choice",
+            "Choices": [
+                {
+                    "Next": "B"
+                },
+                {
+                    "Next": "E"
+                }
+            ]
+        },
+        "B": {
+            "Type": "Task",
+            "Next": "C"
+        },
+        "C": {
+            "Type": "Task",
+            "Next": "D"
+        },
+        "D": {
+            "Type": "Task",
+            "Next": ""
+        },
+        "E": {
+            "Type": "Parallel",
+            "Next": "H",
+            "Branches": [
+                {
+                    "StartAt": "F",
+                    "States": {
+                        "F": {
+                            "Type": "Task",
+                            "Next": ""
+                        }
+                    }
+                },
+                {
+                    "StartAt": "G",
+                    "States": {
+                        "G": {
+                            "Type": "Task",
+                            "Next": ""
+                        }
+                    }
+                }
+            ]
+        },
+        "H": {
+            "Type": "Task",
+            "Next": "",
+            "End": true
+        }
+    }
+}
